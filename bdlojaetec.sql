@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Tempo de geração: 17-Ago-2021 às 11:47
+-- Tempo de geração: 08-Set-2021 às 13:07
 -- Versão do servidor: 10.4.10-MariaDB
 -- versão do PHP: 7.3.12
 
@@ -86,16 +86,19 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
   `fone` varchar(15) NOT NULL,
   `login` varchar(15) NOT NULL,
   `senha` varchar(15) NOT NULL,
+  `perfil` varchar(20) NOT NULL,
   PRIMARY KEY (`iduser`),
   UNIQUE KEY `login` (`login`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Extraindo dados da tabela `usuarios`
 --
 
-INSERT INTO `usuarios` (`iduser`, `usuario`, `fone`, `login`, `senha`) VALUES
-(1, 'Mileny Passos', '(11) 96532-2304', 'mileny', '9876');
+INSERT INTO `usuarios` (`iduser`, `usuario`, `fone`, `login`, `senha`, `perfil`) VALUES
+(1, 'Mileny Passos', '(11) 96532-2304', 'mileny', '9876', 'admin'),
+(2, 'Elenice Cristina', '(11) 95632-4852', 'nice', '9876', 'admin'),
+(3, 'Lara Luiza', '(11) 98756-7823', 'lara', '9876', 'user');
 
 --
 -- Restrições para despejos de tabelas
