@@ -87,6 +87,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         MenuCadastro.add(MenuCadastroOS);
 
         MenuCadastroUsuarios.setText("Usuários");
+        MenuCadastroUsuarios.setEnabled(false);
         MenuCadastroUsuarios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MenuCadastroUsuariosActionPerformed(evt);
@@ -97,6 +98,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         Menu.add(MenuCadastro);
 
         MenuRelatorio.setText("Relatórios");
+        MenuRelatorio.setEnabled(false);
 
         MenuRelatorioServicos.setText("Serviços");
         MenuRelatorio.add(MenuRelatorioServicos);
@@ -161,7 +163,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_MenuCadastroClienteActionPerformed
 
     private void MenuCadastroUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuCadastroUsuariosActionPerformed
-        // TODO add your handling code here:
+        TelaUsuarios usuarios = new TelaUsuarios();
+        usuarios.setVisible(true);
+        Desktop.add(usuarios);
     }//GEN-LAST:event_MenuCadastroUsuariosActionPerformed
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
@@ -226,12 +230,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu MenuCadastro;
     private javax.swing.JMenuItem MenuCadastroCliente;
     private javax.swing.JMenuItem MenuCadastroOS;
-    private javax.swing.JMenuItem MenuCadastroUsuarios;
+    public static javax.swing.JMenuItem MenuCadastroUsuarios;
     private javax.swing.JMenu MenuOpcoes;
     private javax.swing.JMenuItem MenuOpcoesSair;
-    private javax.swing.JMenu MenuRelatorio;
+    public static javax.swing.JMenu MenuRelatorio;
     private javax.swing.JMenuItem MenuRelatorioServicos;
     private javax.swing.JLabel lblData;
-    private javax.swing.JLabel lblUsuario;
+    public static javax.swing.JLabel lblUsuario;
     // End of variables declaration//GEN-END:variables
 }
