@@ -47,11 +47,11 @@ public class TelaUsuarios extends javax.swing.JInternalFrame {
             pst.setString(2, txtNome.getText());
             pst.setString(3, txtFone.getText());
             pst.setString(4, txtLogin.getText());
-            String captura_senha = new String(txtSenha.getPassword());
+            String captura_senha = new String(txtSenha.getText());
             pst.setString(5, captura_senha);
             pst.setString(6, comboPerfil.getSelectedItem().toString());
             
-            if (txtId.getText().isEmpty() || txtNome.getText().isEmpty() || txtFone.getText().isEmpty()) || txtLogin.getText().isEmpty() || txtSenha.getText().isEmpty()){
+            if (txtId.getText().isEmpty() || txtNome.getText().isEmpty() || txtFone.getText().isEmpty() || txtLogin.getText().isEmpty() || txtSenha.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "Preencha todos os campos obrigatórios");
         }
             int adicionado = pst.executeUpdate();
