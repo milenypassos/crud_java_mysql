@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Tempo de geração: 09-Set-2021 às 11:24
+-- Tempo de geração: 27-Out-2021 às 17:50
 -- Versão do servidor: 10.4.10-MariaDB
 -- versão do PHP: 7.3.12
 
@@ -36,15 +36,17 @@ CREATE TABLE IF NOT EXISTS `clientes` (
   `fonecli` varchar(15) NOT NULL,
   `emailcli` varchar(50) NOT NULL,
   PRIMARY KEY (`idcli`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Extraindo dados da tabela `clientes`
 --
 
 INSERT INTO `clientes` (`idcli`, `nomecli`, `endcli`, `fonecli`, `emailcli`) VALUES
-(1, 'Restaurante Metropolitano', 'Rua Anastácio, 3652', '(11) 4812-1596', 'rest@email.com'),
-(2, 'Vidraçaria Azul', 'Rua Ipiranga, 741', '(11) 91895-2596', 'vidracariazul@email.com');
+(1, 'Restaurante Metropolitano', 'Rua Anastácio, 3652', '(11) 4812-1565', 'rest@email.com'),
+(2, 'Vidraçaria Azul e Amarelo', 'Rua Ipiranga, 741', '(11) 91895-2596', 'vidracariazul@email.com'),
+(3, 'Lavanderia Lavanda', 'Rua rede, nº256 - Bairro Iris', '(11) 93255-5895', 'lavanda@email.com'),
+(4, 'Casa de Embalagens', 'Rua Cobra, nº789 - Bairro Suiça', '(11) 36952-9863', 'casaembalagens@gamail.com');
 
 -- --------------------------------------------------------
 
@@ -89,7 +91,7 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
   `perfil` varchar(20) NOT NULL,
   PRIMARY KEY (`iduser`),
   UNIQUE KEY `login` (`login`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Extraindo dados da tabela `usuarios`
@@ -97,8 +99,8 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
 
 INSERT INTO `usuarios` (`iduser`, `usuario`, `fone`, `login`, `senha`, `perfil`) VALUES
 (1, 'Mileny Passos', '(11) 96532-2304', 'mileny', '9876', 'admin'),
-(2, 'Elenice Cristina', '(11) 95632-4852', 'nice', '9876', 'admin'),
-(3, 'Lara Luiza', '(11) 98756-7823', 'lara', '9876', 'user'),
+(2, 'Elenice Campos', '(11) 95632-4852', 'nice', '9876', 'admin'),
+(3, 'Luana Oliveira', '(11) 96325-4585', 'lua', '9876', 'admin'),
 (4, 'Valéria Passos', '(11) 95632-1548', 'valeria', '9876', 'user'),
 (5, 'Luiza Eliza', '(11) 98756-3598', 'luiza', '9876', 'user');
 
