@@ -1,4 +1,3 @@
-//errado
 package br.com.loja.dal;
 import java.sql.*;
 public class ModuloConexao {

@@ -90,6 +90,27 @@ public class TelaClientes extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, e);
         }
     }
+        private void remover(){
+        int confirma = JOptionPane.showConfirmDialog(null, "Tem certeza de que deseja remover este usuário?",
+                "Atenção", JOptionPane.YES_NO_OPTION);
+        if (confirma == JOptionPane.YES_OPTION){
+            String sql = "DELETE FROM clientes WHERE idcli=?";
+            try {
+                pst = conexao.prepareStatement(sql);
+                pst.setString(1, txtId.getText());
+                int apagado = pst.executeUpdate();
+                if (apagado > 0){
+                    JOptionPane.showMessageDialog(null, "Cliente removido com sucesso!");
+                    txtNome.setText(null);
+                    txtEndereco.setText(null);
+                    txtFone.setText(null);
+                    txtEmail.setText(null);
+                }
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
+        }
+    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -271,7 +292,7 @@ public class TelaClientes extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnAlterarActionPerformed
 
     private void btnApagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnApagarActionPerformed
-
+        remover();
     }//GEN-LAST:event_btnApagarActionPerformed
 
 
