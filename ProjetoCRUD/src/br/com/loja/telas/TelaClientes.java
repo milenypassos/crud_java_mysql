@@ -3,6 +3,7 @@ package br.com.loja.telas;
 import java.sql.*;
 import br.com.loja.dal.ModuloConexao;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 import net.proteanit.sql.DbUtils;
 
 public class TelaClientes extends javax.swing.JInternalFrame {
@@ -44,7 +45,7 @@ public class TelaClientes extends javax.swing.JInternalFrame {
 
     private void pesquisar_cliente(){
         
-        String sql = "SELECT * FROM clientes WHERE nomecli LIKE ?";
+        String sql = "SELECT idcli as id, nomecli as nome, endcli as endereço, fonecli as fone, emailcli as email FROM clientes WHERE nomecli LIKE ? ";
         try {
             pst = conexao.prepareStatement(sql);
             pst.setString(1, txtBuscaCliente.getText() + "%");
@@ -79,7 +80,7 @@ public class TelaClientes extends javax.swing.JInternalFrame {
             } else {
                 int adicionado = pst.executeUpdate();
                 if (adicionado>0){
-                    JOptionPane.showMessageDialog(null,"Dados do usuário alterado com sucesso!");
+                    JOptionPane.showMessageDialog(null,"Dados do cliente alterados com sucesso!");
                     txtNome.setText(null);
                     txtEndereco.setText(null);
                     txtFone.setText(null);
@@ -91,7 +92,7 @@ public class TelaClientes extends javax.swing.JInternalFrame {
         }
     }
         private void remover(){
-        int confirma = JOptionPane.showConfirmDialog(null, "Tem certeza de que deseja remover este usuário?",
+        int confirma = JOptionPane.showConfirmDialog(null, "Tem certeza de que deseja remover este cliente?",
                 "Atenção", JOptionPane.YES_NO_OPTION);
         if (confirma == JOptionPane.YES_OPTION){
             String sql = "DELETE FROM clientes WHERE idcli=?";
@@ -111,6 +112,16 @@ public class TelaClientes extends javax.swing.JInternalFrame {
             }
         }
     }
+        
+        private void limpar(){
+            txtBuscaCliente.setText(null);
+            txtId.setText(null);
+            txtNome.setText(null);
+            txtEndereco.setText(null);
+            txtFone.setText(null);
+            txtEmail.setText(null);
+            ((DefaultTableModel)tblClientes.getModel()).setRowCount(0);
+        }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -178,13 +189,13 @@ public class TelaClientes extends javax.swing.JInternalFrame {
 
         tblClientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "ID", "Nome", "Endereço", "Fone", "Email"
             }
         ));
         tblClientes.addMouseListener(new java.awt.event.MouseAdapter() {
